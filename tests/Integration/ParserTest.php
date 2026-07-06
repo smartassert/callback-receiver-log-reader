@@ -19,10 +19,8 @@ class ParserTest extends TestCase
      * @param array<mixed>       $expectedRequestDataCollection
      */
     #[DataProvider('parseDataProvider')]
-    public function testParse(
-        array $requests,
-        array $expectedRequestDataCollection,
-    ): void {
+    public function testParse(array $requests, array $expectedRequestDataCollection): void
+    {
         $expectedRequestCount = count($requests);
 
         $client = new Client();
