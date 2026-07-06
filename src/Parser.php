@@ -9,9 +9,6 @@ use Psr\Http\Message\RequestInterface;
 
 readonly class Parser
 {
-    public function __construct(
-    ) {}
-
     /**
      * @return RequestInterface[]
      */
