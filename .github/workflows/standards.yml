@@ -1,0 +1,54 @@
+name: standards
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  php-cs-fixer:
+    name: PHP CS Fixer Dry Run - PHP ${{ matrix.php }}
+    strategy:
+      matrix:
+        php: ['8.4', '8.5']
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Run
+        run: composer cs-fixer-dry-run
+
+  phpcs:
+    name: PHPCS - PHP ${{ matrix.php }}
+    strategy:
+      matrix:
+        php: ['8.4', '8.5']
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Run
+        run:
+          # composer cs-phpcs
+          echo "Running will error until there are PHP files to examine."
