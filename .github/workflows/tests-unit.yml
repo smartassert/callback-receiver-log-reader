@@ -8,7 +8,7 @@ on:
 
 jobs:
   tests:
-    name: Functional tests - PHP ${{ matrix.php }}
+    name: Unit tests - PHP ${{ matrix.php }}
     strategy:
       matrix:
         php: [ '8.4', '8.5']
