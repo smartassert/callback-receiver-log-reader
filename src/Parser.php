@@ -19,7 +19,6 @@ readonly class Parser
         }
 
         $requests = [];
-
         $logSections = $this->getRawLogSections($content, $lastRequestCount);
 
         foreach ($logSections as $section) {
