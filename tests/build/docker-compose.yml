@@ -2,3 +2,5 @@ services:
   callback-receiver:
     image: mendhak/http-https-echo:19
     container_name: callback-receiver
+    ports:
+      - "8080:8080"
